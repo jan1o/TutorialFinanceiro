@@ -8,6 +8,14 @@
 
 <h:body>
 	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Título: " />
+			<h:inputText value="#{livrosBean.novoLivro.titulo}" />
+			<h:outputLabel value="Autor: " />
+			<h:inputText value="#{livrosBean.novoLivro.autor}" />
+			<h:outputLabel />
+			<h:commandButton value="Adicionar" action="#{livrosBean.adicionar}" />
+		</h:panelGrid>
 		<h:dataTable value="#{livrosBean.livros}" var="livro" border="1"
 			cellspacing="0" cellpadding="2">
 			<f:facet name="header">
