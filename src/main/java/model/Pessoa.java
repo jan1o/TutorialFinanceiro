@@ -3,6 +3,10 @@ package model;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "pessoa")
@@ -21,6 +25,8 @@ public class Pessoa implements Serializable {
 		this.id = id;
 	}
 	
+	@NotEmpty
+	@Size(max = 60)
 	@Column(length = 60, nullable = false)
 	public String getNome() {
 		return nome;
