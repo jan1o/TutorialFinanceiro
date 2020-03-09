@@ -1,22 +1,18 @@
 package bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-
-@ManagedBean
+@Named
+@RequestScoped
 public class TesteBean {
 	private String nome;
+	private int quantidadeCaracteres;
 
-	public void cadastrar() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro efetuado.",
-				"Cliente " + this.nome + " cadastrado com sucesso.");
-		context.addMessage(null, mensagem);
+	public String transformar() {
+		this.nome = this.nome.toUpperCase();
+		this.quantidadeCaracteres = this.nome.length();
+		return this.nome;
 	}
 
 	public String getNome() {
@@ -25,5 +21,9 @@ public class TesteBean {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getQuantidadeCaracteres() {
+		return quantidadeCaracteres;
 	}
 }

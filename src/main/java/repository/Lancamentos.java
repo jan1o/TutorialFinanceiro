@@ -31,5 +31,17 @@ public class Lancamentos implements Serializable{
 		this.manager.persist(lancamento);
 		
 	}
+	
+	public Lancamento porId(Long id) {
+		return manager.find(Lancamento.class, id);
+	}
+	
+	public Lancamento guardar(Lancamento lancamento) {
+		return this.manager.merge(lancamento);
+	}
+	
+	public void remover(Lancamento lancamento) {
+		this.manager.remove(lancamento);
+		}
 
 }
