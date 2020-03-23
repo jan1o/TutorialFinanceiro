@@ -17,6 +17,7 @@ public class LoginBean {
 	private String senha;
 
 	public String login() {
+		System.out.println("**************Teste1********");
 		FacesContext context = FacesContext.getCurrentInstance();
 		if ("admin".equals(this.nomeUsuario) && "123".equals(this.senha)) {
 			this.usuario.setNome(this.nomeUsuario);
